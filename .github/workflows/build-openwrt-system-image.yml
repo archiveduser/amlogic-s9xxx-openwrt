@@ -18,6 +18,10 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
+      branch_name:
+        description: 'Input branch name'
+        required: false
+        default: ''
       openwrt_board:
         description: "Select device board"
         required: false
@@ -323,6 +327,11 @@ jobs:
               exit 1
           fi
 
+          if [[ -n "${{ inputs.branch_name }}" ]]; then
+            REPO_BRANCH="${{ inputs.branch_name }}"
+            echo "Using custom branch from input: [ ${REPO_BRANCH} ]"
+          fi
+
           # Clone source code
           git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
           ln -sf /builder/openwrt ${GITHUB_WORKSPACE}/openwrt
@@ -353,6 +362,7 @@ jobs:
         run: |
           [[ -d "files" ]] && mv -f files openwrt/files
           [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
+          [[ -e "add_to_config" ]] && cat add_to_config >> openwrt/.config
           chmod +x ${DIY_P2_SH}
           cd openwrt/
           ${GITHUB_WORKSPACE}/${DIY_P2_SH}
@@ -371,7 +381,7 @@ jobs:
         run: |
           cd openwrt/
           echo -e "$(nproc) thread compile"
-          make -j$(($(nproc) + 1)) V=s || make -j1 || make -j1 V=s
+          make -j$(($(nproc) + 1)) || make -j$(($(nproc) + 1)) || make -j1 || make -j1 V=s
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Clear server space
