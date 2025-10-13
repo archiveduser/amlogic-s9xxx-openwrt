@@ -141,6 +141,7 @@ custom_config() {
 
     config_list=""
     if [[ -s "${custom_config_file}" ]]; then
+        [[ -e "${make_path}/add_to_config" ]] && cat "${make_path}/add_to_config" >> "${custom_config_file}"
         config_list="$(cat ${custom_config_file} 2>/dev/null | grep -E "^CONFIG_PACKAGE_.*=y" | sed -e 's/CONFIG_PACKAGE_//g' -e 's/=y//g' -e 's/[ ][ ]*//g' | tr '\n' ' ')"
         echo -e "${INFO} Custom config list: \n$(echo "${config_list}" | tr ' ' '\n')"
     else
