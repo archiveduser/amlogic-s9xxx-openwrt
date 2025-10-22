@@ -239,6 +239,10 @@ on:
           - ophub
           - angel
           - yourname
+      openwrt_size:
+        description: "OpenWrt image size (in MB)"
+        required: false
+        default: "1024"
 
 env:
   TZ: Etc/UTC
