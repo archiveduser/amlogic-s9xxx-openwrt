@@ -198,7 +198,7 @@ rebuild_firmware() {
         luci-lib-ip luci-lib-ipkg luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network \
         luci-mod-status luci-mod-system luci-proto-3g luci-proto-ipip luci-proto-ipv6 \
         luci-app-upnp luci-app-ddns luci-app-wol luci-app-diskman luci-app-nlbwmon luci-app-samba4 luci-app-hd-idle luci-app-aria2 luci-app-qbittorrent luci-app-watchcat luci-app-dockerman luci-app-sqm luci-app-msd_lite luci-app-openclash \
-        kmod-usb-net-rndis kmod-hwmon-gpiofan adguardhome ddns-scripts-cloudflare openssh-sftp-server luci-proto-wireguard kmod-tcp-bbr ffmpeg ffplay  \
+        kmod-usb-net-rndis kmod-hwmon-gpiofan adguardhome ddns-scripts-cloudflare openssh-sftp-server luci-proto-wireguard kmod-tcp-bbr ffmpeg   \
         luci-app-amlogic  \
         \
         ${config_list} \
