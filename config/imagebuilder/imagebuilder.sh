@@ -204,7 +204,7 @@ rebuild_firmware() {
         luci-i18n-samba4-zh-cn luci-i18n-aria2-zh-cn luci-i18n-qbittorrent-zh-cn \
         luci-i18n-diskman-zh-cn luci-i18n-hd-idle-zh-cn openvpn-openssl \
         luci-i18n-sqm-zh-cn luci-i18n-watchcat-zh-cn luci-i18n-nlbwmon-zh-cn \
-        luci-i18n-msd_lite-zh-cn rsync \
+        luci-i18n-msd_lite-zh-cn rsync openssh-client \
         ${config_list} \
         "
 
