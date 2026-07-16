@@ -217,11 +217,41 @@ rebuild_firmware() {
         luci-mod-status luci-mod-system luci-proto-3g luci-proto-ipip luci-proto-ipv6 \
         luci-proto-ncm luci-proto-openconnect luci-proto-ppp luci-proto-qmi luci-proto-relay \
         \
+        luci-app-ddns luci-i18n-ddns-zh-cn \
+        luci-app-dockerman luci-i18n-dockerman-zh-cn \
+        luci-app-firewall luci-i18n-firewall-zh-cn \
+        luci-app-package-manager luci-i18n-package-manager-zh-cn \
+        luci-app-ttyd luci-i18n-ttyd-zh-cn \
+        luci-app-upnp luci-i18n-upnp-zh-cn \
+        luci-app-wol luci-i18n-wol-zh-cn \
+        luci-theme-material \
+        \
+        adguardhome exfat-fsck hd-idle ip-full ntfs-3g openvpn-openssl sudo \
+        samba4-server smartmontools sqm-scripts usbutils wireguard-tools \
+        \
+        luci-app-diskman luci-i18n-diskman-zh-cn \
+        luci-app-hd-idle luci-i18n-hd-idle-zh-cn \
+        luci-app-natmap luci-i18n-natmap-zh-cn \
+        luci-app-nlbwmon luci-i18n-nlbwmon-zh-cn \
+        luci-app-openclash \
+        luci-app-samba4 luci-i18n-samba4-zh-cn \
+        luci-app-sqm luci-i18n-sqm-zh-cn \
+        luci-app-watchcat luci-i18n-watchcat-zh-cn \
+        luci-proto-wireguard \
+        \
+        kmod-usb-storage kmod-usb-storage-uas \
+        kmod-fs-ext4 kmod-fs-btrfs kmod-fs-exfat kmod-fs-msdos kmod-fs-ntfs3 kmod-fs-vfat \
+        kmod-nls-base kmod-nls-cp437 kmod-nls-cp936 kmod-nls-iso8859-1 kmod-nls-utf8 \
+        kmod-nft-socket kmod-nft-tproxy kmod-macvlan \
+        kmod-hwmon-gpiofan kmod-thermal \
+        \
+        dnsmasq-full -dnsmasq \
+        \
         luci-app-amlogic luci-i18n-amlogic-zh-cn \
         \
-        ${config_list} \
+        -hostapd-common -iw -iwinfo -wpad-basic \
+        -kmod-brcmfmac -kmod-brcmutil -kmod-cfg80211 -kmod-mac80211 \
         "
-
     # Rebuild firmware
     make image PROFILE="" PACKAGES="${my_packages}" FILES="files"
 
